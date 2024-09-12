@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="ru">
       <body
-        className={clsx("min-h-screen font-sans antialiased", montserrat.variable)}
+        className={clsx("dark min-h-screen font-sans antialiased", montserrat.variable)}
       >
         <Providers>{children}</Providers>
       </body>
