@@ -1,24 +1,18 @@
 "use client";
 
+import PostCard from "@/components/ui/PostCard";
 import { Tab, Tabs, Card, CardBody } from "@nextui-org/react";
 
 export default function Home() {
   return (
     <div className="flex w-full flex-col">
-      <Tabs
-        aria-label="Options"
-        color="primary"
-        className="font-semibold"
-      >
+      <Tabs aria-label="Options" color="primary" className="font-semibold">
         <Tab key="follow" title="Подписки">
-          <Card>
-            <CardBody>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat.
-            </CardBody>
-          </Card>
+          <div className="grid gap-4 md:grid-cols-2 grid-cols-1">
+            <PostCard/>
+            <PostCard/>
+            <PostCard/>
+          </div>
         </Tab>
         <Tab key="popular" title="Популярное">
           <Card>

@@ -6,7 +6,7 @@ export default function MainLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="relative flex flex-col h-screen bg-background">
+    <div className="relative flex flex-col">
       <UiNavbar />
       <main className="container mx-auto max-w-7xl pt-16 px-6 flex-grow">
         {children}

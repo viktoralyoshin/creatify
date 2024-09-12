@@ -17,6 +17,7 @@ import {
   DropdownSection,
   User,
   Badge,
+  Tooltip,
 } from "@nextui-org/react";
 import React from "react";
 import {
@@ -25,30 +26,21 @@ import {
   ChartLine,
   CircleHelp,
   LogOut,
-  MessageCircleMoreIcon,
   BellIcon,
+  MessageCircleIcon,
 } from "lucide-react";
 
 export default function UiNavbar() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [isAuth, setAuth] = React.useState(false);
 
-  const menuItems = [
-    "Profile",
-    "Dashboard",
-    "Activity",
-    "Analytics",
-    "System",
-    "Deployments",
-    "My Settings",
-    "Team Settings",
-    "Help & Feedback",
-    "Log Out",
-  ];
+  const menuItems = ["Profile", "Dashboard", "Activity", "Analytics"];
 
   return (
     <Navbar
       shouldHideOnScroll
+      isBlurred={false}
+      isBordered
       maxWidth="xl"
       className="my-2"
       isMenuOpen={isMenuOpen}
@@ -77,17 +69,7 @@ export default function UiNavbar() {
         </NavbarBrand>
         <NavbarItem>
           <Link color="foreground" className="font-semibold" href="#">
-            Features
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" className="font-semibold" href="#">
-            Customers
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link color="foreground" className="font-semibold" href="#">
-            Integrations
+            лента
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -110,14 +92,18 @@ export default function UiNavbar() {
           <div className="flex gap-6 items-center">
             <div className="gap-2 sm:flex hidden">
               <Badge color="primary" content="3">
-                <Button isIconOnly variant="flat">
-                  <MessageCircleMoreIcon />
-                </Button>
+                <Tooltip content="Сообщения" placement="bottom">
+                  <Button isIconOnly variant="flat">
+                    <MessageCircleIcon size={20}/>
+                  </Button>
+                </Tooltip>
               </Badge>
               <Badge color="primary" content="5">
-                <Button isIconOnly variant="flat">
-                  <BellIcon />
-                </Button>
+                <Tooltip content="Уведомления" placement="bottom">
+                  <Button isIconOnly variant="flat">
+                    <BellIcon size={20}/>
+                  </Button>
+                </Tooltip>
               </Badge>
             </div>
             <Dropdown placement="bottom-end" backdrop="blur">
@@ -138,13 +124,13 @@ export default function UiNavbar() {
                     key="profile"
                     startContent={<UserRound size={20} />}
                   >
-                    <p className="font-semibold">Profile</p>
+                    <p className="font-semibold">Профиль</p>
                   </DropdownItem>
                   <DropdownItem
                     key="dashboard"
                     startContent={<ChartLine size={20} />}
                   >
-                    <p className="font-semibold">Dashboard</p>
+                    <p className="font-semibold">Панель управления</p>
                   </DropdownItem>
                 </DropdownSection>
                 <DropdownSection showDivider>
@@ -152,7 +138,7 @@ export default function UiNavbar() {
                     key="help"
                     startContent={<CircleHelp size={20} />}
                   >
-                    <p className="font-semibold">Help</p>
+                    <p className="font-semibold">Помощь</p>
                   </DropdownItem>
                 </DropdownSection>
                 <DropdownItem
@@ -161,7 +147,7 @@ export default function UiNavbar() {
                   color="danger"
                   startContent={<LogOut size={20} />}
                 >
-                  <p className="font-semibold">Log Out</p>
+                  <p className="font-semibold">Выйти</p>
                 </DropdownItem>
               </DropdownMenu>
             </Dropdown>
