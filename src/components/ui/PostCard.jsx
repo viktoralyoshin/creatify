@@ -40,8 +40,9 @@ export default function PostCard() {
           <Tooltip content="Бесплатный контент">
             <Chip
               color="success"
+              variant="flat"
               size="lg"
-              className="font-semibold text-white cursor-default"
+              className="cursor-default"
             >
               ₽
             </Chip>
